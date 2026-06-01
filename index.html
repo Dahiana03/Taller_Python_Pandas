@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -96,6 +95,125 @@
             <td>cellular</td>
         </tr>
     </table>
+</section>
+
+<section class="card">
+    <h2>Pasos Detallados de la Limpieza</h2>
+
+    <h3>1. Importar librerías</h3>
+    <pre><code>import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns</code></pre>
+
+    <h3>2. Montar Google Drive</h3>
+    <pre><code>from google.colab import drive
+drive.mount('/gdrive')</code></pre>
+
+    <h3>3. Cargar datos</h3>
+    <pre><code>ruta = '/gdrive/MyDrive/limpieza_banco/dataset_banco.csv'
+
+data = pd.read_csv(ruta)</code></pre>
+
+    <h3>4. Revisar el dataset</h3>
+    <pre><code>print(data.shape)
+
+data.head()
+
+data.info()</code></pre>
+
+    <h3>5. Eliminar valores nulos</h3>
+    <pre><code>data.dropna(inplace=True)
+
+data.info()</code></pre>
+
+    <h3>6. Revisar categorías</h3>
+    <pre><code>cols_cat = ['job', 'marital', 'education', 'default',
+            'housing', 'loan', 'contact',
+            'month', 'poutcome', 'y']
+
+for col in cols_cat:
+    print(f'Columna {col}: {data[col].nunique()} subniveles')</code></pre>
+
+    <h3>7. Revisar estadísticas numéricas</h3>
+    <pre><code>data.describe()</code></pre>
+
+    <h3>8. Eliminar duplicados</h3>
+    <pre><code>print(f'Tamaño del set antes de eliminar las filas repetidas: {data.shape}')
+
+data.drop_duplicates(inplace=True)
+
+print(f'Tamaño del set después de eliminar las filas repetidas: {data.shape}')</code></pre>
+
+    <h3>9. Preparar variables numéricas</h3>
+    <pre><code>cols_num = ['age', 'balance', 'day',
+            'duration', 'campaign',
+            'pdays', 'previous']</code></pre>
+
+    <h3>10. Identificar outliers con boxplots</h3>
+    <pre><code>fig, ax = plt.subplots(nrows=7, ncols=1, figsize=(8,30))
+fig.subplots_adjust(hspace=0.5)
+
+for i, col in enumerate(cols_num):
+    sns.boxplot(x=col, data=data, ax=ax[i])
+    ax[i].set_title(col)</code></pre>
+
+    <h3>11. Validar rango de edad y duración</h3>
+    <pre><code>print(f'Tamaño del set antes de eliminar registros de edad: ')
+print(data.shape)
+
+data[data['age'] <= 100]
+
+print(f'Tamaño del set después de eliminar registros de edad: ')
+print(data.shape)
+
+print(f'Tamaño del set antes de eliminar registros de duración: {data.shape}')
+
+data = data[data['duration'] > 0]
+
+print(f'Tamaño del set después de eliminar registros de duración: {data.shape}')
+
+data = data[data['previous'] <= 100]</code></pre>
+
+    <h3>12. Estandarizar categorías a minúsculas</h3>
+    <pre><code>for column in data.columns:
+    if column in cols_cat:
+        data[column] = data[column].str.lower()</code></pre>
+
+    <h3>13. Contar valores de categorías</h3>
+    <pre><code>fig, ax = plt.subplots(nrows=10, ncols=1, figsize=(10,30))
+fig.subplots_adjust(hspace=1)
+
+for i, col in enumerate(cols_cat):
+    sns.countplot(x=col, data=data, ax=ax[i])
+    ax[i].set_title(col)
+    ax[i].set_xticklabels(ax[i].get_xticklabels(), rotation=30)</code></pre>
+
+    <h3>14. Corregir valores categóricos</h3>
+    <pre><code>data['job'] = data['job'].str.replace('admin.', 'administrative', regex=False)
+
+data['marital'] = data['marital'].str.replace('div.', 'divorced', regex=False)
+
+data['education'] = data['education'].str.replace('sec.', 'secondary', regex=False)
+
+data.loc[data['education'] == 'unk', 'education'] = 'unknown'
+
+data.loc[data['contact'] == 'phone', 'contact'] = 'telephone'
+
+data.loc[data['contact'] == 'mobile', 'contact'] = 'cellular'
+
+data.loc[data['poutcome'] == 'unk', 'poutcome'] = 'unknown'</code></pre>
+
+    <h3>15. Guardar el archivo limpio</h3>
+    <pre><code>ruta_salida = '/gdrive/MyDrive/limpieza_banco/dataset_limpio.csv'
+
+data.to_csv(ruta_salida, index=False)</code></pre>
+
+    <h3>Resumen antes y después</h3>
+    <p>
+        Antes de la limpieza el conjunto de datos tenía <strong>45 215 registros</strong>.
+        Al eliminar <strong>8 filas con datos faltantes</strong> y <strong>4 registros duplicados</strong>,
+        el dataset resultante quedó con <strong>45 203 registros</strong>.
+    </p>
 </section>
 
 <section class="card">
@@ -265,4 +383,3 @@
 
 </body>
 </html>
-```
