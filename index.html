@@ -1,0 +1,268 @@
+```html
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Limpieza de Datos con Pandas</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<button class="btn-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    ↑
+</button>
+
+<div class="container">
+
+<header>
+    <h1>Taller de Limpieza y Análisis de Datos con Pandas</h1>
+    <p>Preparación y análisis exploratorio de una base de datos bancaria utilizando Python y Pandas.</p>
+</header>
+
+<section class="card">
+    <h2>Introducción</h2>
+
+    <p>
+        En este taller se trabajó con una base de datos perteneciente a una campaña de marketing
+        de una entidad bancaria. El propósito principal fue realizar un proceso de limpieza,
+        transformación y análisis exploratorio de los datos utilizando la librería Pandas de Python.
+    </p>
+
+    <p>
+        La calidad de los datos es fundamental para cualquier análisis, por lo que se realizaron
+        diferentes procedimientos para corregir inconsistencias, estandarizar categorías y preparar
+        la información para futuros estudios estadísticos o modelos predictivos.
+    </p>
+</section>
+
+<section class="card">
+    <h2>Objetivos</h2>
+
+    <ul>
+        <li>Identificar y corregir errores presentes en la base de datos.</li>
+        <li>Eliminar registros inconsistentes o duplicados.</li>
+        <li>Estandarizar variables categóricas.</li>
+        <li>Analizar las características generales de los clientes.</li>
+        <li>Preparar los datos para futuros análisis y modelos predictivos.</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Proceso de Limpieza de Datos</h2>
+
+    <p>Durante el desarrollo del taller se realizaron las siguientes actividades:</p>
+
+    <ul>
+        <li>Revisión de valores nulos.</li>
+        <li>Identificación de registros duplicados.</li>
+        <li>Corrección de errores tipográficos.</li>
+        <li>Estandarización de categorías.</li>
+        <li>Validación de edades y datos numéricos.</li>
+        <li>Normalización de variables categóricas.</li>
+    </ul>
+
+    <h3>Ejemplos de Corrección</h3>
+
+    <table>
+        <tr>
+            <th>Valor Original</th>
+            <th>Valor Corregido</th>
+        </tr>
+        <tr>
+            <td>admin.</td>
+            <td>administrative</td>
+        </tr>
+        <tr>
+            <td>div.</td>
+            <td>divorced</td>
+        </tr>
+        <tr>
+            <td>sec.</td>
+            <td>secondary</td>
+        </tr>
+        <tr>
+            <td>unk</td>
+            <td>unknown</td>
+        </tr>
+        <tr>
+            <td>phone</td>
+            <td>telephone</td>
+        </tr>
+        <tr>
+            <td>mobile</td>
+            <td>cellular</td>
+        </tr>
+    </table>
+</section>
+
+<section class="card">
+    <h2>Análisis Exploratorio de Datos</h2>
+
+    <div class="grafica">
+        <img src="img/job_marital.png" alt="Job y Marital">
+
+        <h3>Ocupación y Estado Civil</h3>
+
+        <p>
+            Se observa que las ocupaciones con mayor cantidad de clientes son
+            <strong>blue-collar</strong>, <strong>management</strong> y
+            <strong>technician</strong>. Esto indica que gran parte de la población
+            analizada pertenece a sectores laborales activos y estables.
+        </p>
+
+        <p>
+            En cuanto al estado civil, predominan los clientes casados, seguidos por
+            los solteros. Los divorciados representan una proporción menor dentro del conjunto
+            de datos.
+        </p>
+    </div>
+
+    <div class="grafica">
+        <img src="img/education_default.png" alt="Education y Default">
+
+        <h3>Nivel Educativo y Mora Financiera</h3>
+
+        <p>
+            La mayoría de los clientes posee educación secundaria, seguida por educación
+            superior. Esto muestra que gran parte de la población cuenta con formación académica
+            básica o avanzada.
+        </p>
+
+        <p>
+            Respecto a la variable de mora financiera (default), casi todos los clientes
+            se encuentran al día con sus obligaciones financieras, lo que refleja una cartera
+            relativamente sana para la entidad bancaria.
+        </p>
+    </div>
+
+    <div class="grafica">
+        <img src="img/housing_loan.png" alt="Housing y Loan">
+
+        <h3>Préstamos de Vivienda y Personales</h3>
+
+        <p>
+            Se observa que una cantidad considerable de clientes posee préstamos de vivienda.
+            Esto puede indicar estabilidad económica y acceso al sistema financiero.
+        </p>
+
+        <p>
+            Por otro lado, la mayoría de los clientes no tiene préstamos personales activos,
+            lo que sugiere un nivel moderado de endeudamiento dentro de la población analizada.
+        </p>
+    </div>
+
+    <div class="grafica">
+        <img src="img/contact_month.png" alt="Contact y Month">
+
+        <h3>Medio de Contacto y Mes de Contacto</h3>
+
+        <p>
+            El medio de contacto más utilizado por el banco fue el teléfono celular
+            (cellular), lo que demuestra que las campañas se realizaron principalmente
+            a través de dispositivos móviles.
+        </p>
+
+        <p>
+            El mes con mayor cantidad de contactos fue mayo, seguido por julio y agosto.
+            Esto indica que durante esos periodos se concentró una mayor actividad comercial
+            por parte de la entidad bancaria.
+        </p>
+    </div>
+
+    <div class="grafica">
+        <img src="img/poutcome_y.png" alt="Poutcome y Conversión">
+
+        <h3>Resultados de Campañas Anteriores y Conversión</h3>
+
+        <p>
+            La variable <strong>poutcome</strong> representa el resultado de campañas
+            de marketing realizadas anteriormente por la entidad bancaria. Se observa
+            que la gran mayoría de los registros pertenecen a la categoría
+            <strong>unknown</strong>, lo que indica que para la mayoría de los clientes
+            no existe información disponible sobre campañas previas.
+        </p>
+
+        <p>
+            Las categorías <strong>failure</strong>, <strong>success</strong> y
+            <strong>other</strong> representan una proporción mucho menor de la población,
+            evidenciando que solo un pequeño grupo de clientes había participado en
+            campañas anteriores con resultados registrados.
+        </p>
+
+        <p>
+            En la variable objetivo <strong>y</strong>, que indica si el cliente aceptó
+            o no la oferta propuesta por el banco, se observa un claro predominio de la
+            respuesta <strong>no</strong>. Esto significa que la mayoría de los clientes
+            contactados no adquirió el producto ofrecido durante la campaña.
+        </p>
+
+        <p>
+            Por el contrario, la categoría <strong>yes</strong> representa una pequeña
+            proporción de los registros, lo que evidencia una tasa de conversión baja,
+            cercana al 10% de la población analizada.
+        </p>
+
+        <p>
+            Estos resultados sugieren que el banco debe enfocar sus estrategias en la
+            identificación de perfiles con mayor probabilidad de aceptación. Los clientes
+            que han tenido campañas exitosas anteriormente podrían representar un segmento
+            con mayor potencial de conversión para futuras acciones comerciales.
+        </p>
+    </div>
+
+</section>
+
+<section class="card conclusion">
+    <h2>Conclusiones</h2>
+
+    <p>
+        El proceso de limpieza permitió mejorar la calidad de los datos, corrigiendo errores
+        e inconsistencias que podían afectar futuros análisis.
+    </p>
+
+    <p>
+        A partir del análisis exploratorio se identificó que la mayoría de los clientes
+        pertenece a sectores laborales activos, cuenta con educación secundaria y mantiene
+        una situación financiera estable.
+    </p>
+
+    <p>
+        También se observó que la principal estrategia de contacto utilizada por el banco
+        fue la telefonía móvil y que los meses de mayor actividad comercial fueron mayo,
+        julio y agosto.
+    </p>
+
+    <p>
+        Adicionalmente, se observó que la tasa de conversión de la campaña es baja,
+        ya que aproximadamente el 90% de los clientes contactados no aceptó la oferta
+        propuesta. Este hallazgo evidencia la necesidad de mejorar las estrategias de
+        segmentación para enfocar los esfuerzos comerciales en clientes con mayor
+        probabilidad de aceptación.
+    </p>
+
+    <p>
+        También se identificó que la mayoría de los clientes no cuenta con historial
+        registrado de campañas anteriores, por lo que futuras estrategias de marketing
+        deberán apoyarse en otras variables como edad, ocupación, nivel educativo y
+        situación financiera para mejorar la efectividad de las campañas.
+    </p>
+
+    <p>
+        Finalmente, la base de datos quedó preparada para realizar análisis más avanzados
+        y desarrollar modelos predictivos que permitan identificar clientes potencialmente
+        interesados en los productos financieros ofrecidos por la entidad.
+    </p>
+</section>
+
+<footer>
+    Taller desarrollado con Python, Pandas y Google Colab © 2026
+</footer>
+
+</div>
+
+</body>
+</html>
+```

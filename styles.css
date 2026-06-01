@@ -1,0 +1,316 @@
+/* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background:#0f172a;
+    color:#e2e8f0;
+    line-height:1.8;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#1e293b;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#3b82f6;
+    border-radius:10px;
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header{
+    text-align:center;
+    padding:70px 20px;
+
+    background:linear-gradient(
+        135deg,
+        #2563eb,
+        #1d4ed8,
+        #0ea5e9
+    );
+
+    border-radius:20px;
+    margin-bottom:40px;
+
+    box-shadow:
+    0 0 20px rgba(37,99,235,.5),
+    0 0 40px rgba(37,99,235,.3);
+
+    animation: aparecer 1s ease;
+}
+
+header h1{
+    font-size:3rem;
+    margin-bottom:15px;
+    text-shadow:0 0 15px rgba(255,255,255,.3);
+}
+
+header p{
+    font-size:1.2rem;
+}
+
+/* =========================
+   TARJETAS
+========================= */
+
+.card{
+    background:#1e293b;
+
+    margin-bottom:30px;
+    padding:30px;
+
+    border-radius:20px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 5px 20px rgba(0,0,0,.3);
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+
+    box-shadow:
+    0 10px 30px rgba(59,130,246,.3);
+}
+
+.card h2{
+    color:#60a5fa;
+    margin-bottom:20px;
+    border-left:5px solid #3b82f6;
+    padding-left:15px;
+}
+
+.card h3{
+    color:#38bdf8;
+    margin-top:20px;
+    margin-bottom:10px;
+}
+
+/* =========================
+   TEXTO
+========================= */
+
+p{
+    text-align:justify;
+    margin-bottom:15px;
+}
+
+ul{
+    margin-left:25px;
+}
+
+li{
+    margin-bottom:10px;
+}
+
+/* =========================
+   TABLAS
+========================= */
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+table th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+table td{
+    padding:12px;
+    border:1px solid #334155;
+}
+
+table tr:nth-child(even){
+    background:#273549;
+}
+
+table tr:hover{
+    background:#334155;
+}
+
+/* =========================
+   GRAFICAS
+========================= */
+
+.grafica{
+    margin-top:50px;
+    text-align:center;
+}
+
+.grafica img{
+    width:100%;
+    max-width:900px;
+
+    border-radius:20px;
+
+    border:2px solid #2563eb;
+
+    box-shadow:
+    0 0 20px rgba(37,99,235,.4);
+
+    transition:.4s;
+}
+
+.grafica img:hover{
+    transform:scale(1.02);
+
+    box-shadow:
+    0 0 35px rgba(37,99,235,.8);
+}
+
+.grafica h3{
+    margin-top:20px;
+}
+
+/* =========================
+   CONCLUSIONES
+========================= */
+
+.conclusion{
+    background:linear-gradient(
+    135deg,
+    #1e293b,
+    #172033
+    );
+
+    border-left:5px solid #3b82f6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    text-align:center;
+    padding:30px;
+    margin-top:30px;
+
+    color:#94a3b8;
+}
+
+/* =========================
+   BOTON VOLVER ARRIBA
+========================= */
+
+.btn-top{
+    position:fixed;
+    bottom:25px;
+    right:25px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#2563eb;
+    color:white;
+
+    font-size:20px;
+    cursor:pointer;
+
+    box-shadow:
+    0 0 15px rgba(37,99,235,.7);
+
+    transition:.3s;
+}
+
+.btn-top:hover{
+    transform:scale(1.1);
+}
+
+/* =========================
+   ANIMACIONES
+========================= */
+
+@keyframes aparecer{
+
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+.card{
+    animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:768px){
+
+    header h1{
+        font-size:2rem;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+    .grafica img{
+        width:100%;
+    }
+
+}
